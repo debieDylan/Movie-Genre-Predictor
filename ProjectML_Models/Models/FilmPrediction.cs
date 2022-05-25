@@ -10,7 +10,7 @@ namespace ProjectML_Models.Models
     public class FilmPrediction : FilmData
     {
         [ColumnName("PredictedLabel")]
-        public string Prediction { get; set; } //<----hoogste %
-        public float[] Score { get; set; } //<---- Scores alle labels
+        public string Prediction { get; set; } //<----Highest %
+        public float[] Score { get; set; } //<---- Scores all labels
     }
 }

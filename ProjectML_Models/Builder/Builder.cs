@@ -46,7 +46,7 @@ namespace ProjectML_Models.Builder
             return evaluate;
         }
 
-        #region Data opladen
+        #region Save Data
         private static TrainTestData LoadData(MLContext mlContext)
         {
             IDataView dataView = mlContext.Data.LoadFromTextFile<FilmData>(_dataPath, hasHeader: true, separatorChar: ';');
@@ -56,7 +56,7 @@ namespace ProjectML_Models.Builder
         }
         #endregion
 
-        #region Data transformeren en  trainen
+        #region Transform and Train Data
         private static IEstimator<ITransformer> ProcessData()
         {
             var pipeline = _mlContext.Transforms.Conversion.MapValueToKey(inputColumnName: "genre", outputColumnName: "Label")
@@ -86,7 +86,7 @@ namespace ProjectML_Models.Builder
         }
         #endregion
 
-        #region Getrained Model Evalueren en opslagen
+        #region Evaluate trained model and Save
         private static string Evaluate(DataViewSchema trainingDataViewSchema)
         {
             var testDataView = _testDataView;
@@ -113,7 +113,7 @@ namespace ProjectML_Models.Builder
         }
         #endregion
 
-        #region Film Voorspellen
+        #region Predict
         public static string PredictFilm(FilmData Film)
         {
             ITransformer loadedModel = _mlContext.Model.Load(_modelPath, out var modelInputSchema);
@@ -156,7 +156,7 @@ namespace ProjectML_Models.Builder
         }
         #endregion
 
-        #region Methodes
+        #region Functions
         public static string[] AllScores(PredictionEngine<FilmData, FilmPrediction> predEngine)
         {
             var labelBuffer = new VBuffer<ReadOnlyMemory<char>>();

@@ -14,7 +14,7 @@ namespace ProjectML_Models.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool IsGeldig()
+        public bool IsValid()
         {
             return string.IsNullOrWhiteSpace(Error);
         }
@@ -23,18 +23,18 @@ namespace ProjectML_Models.Models
         {
             get
             {
-                string foutmeldingen = "";
+                string errorMessages = "";
 
                 foreach (var item in this.GetType().GetProperties()) //reflection 
                 {
 
-                    string fout = this[item.Name];
-                    if (!string.IsNullOrWhiteSpace(fout))
+                    string error = this[item.Name];
+                    if (!string.IsNullOrWhiteSpace(error))
                     {
-                        foutmeldingen += fout + Environment.NewLine;
+                        errorMessages += error + Environment.NewLine;
                     }
                 }
-                return foutmeldingen;
+                return errorMessages;
             }
         }
     }

@@ -95,7 +95,7 @@ namespace ProjectML_WPF.ViewModels
 
         private async Task PredictFilmAsync()
         {
-            if (FilmRecord.IsGeldig())
+            if (FilmRecord.IsValid())
             {
                 Loading = Visibility.Visible;
                 Enabled = false;
