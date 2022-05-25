@@ -80,7 +80,7 @@ namespace ProjectML_Models.Builder
             var trainingPipeline = pipeline
                 .Append(_mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
                 .Append(_mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"))
-                .Append(_mlContext.Transforms.Conversion.MapKeyToValue(inputColumnName: "Value", outputColumnName: "description")); //veranderen columntype <vector>string naar system.string
+                .Append(_mlContext.Transforms.Conversion.MapKeyToValue(inputColumnName: "Value", outputColumnName: "description"));
 
             _trainedModel = trainingPipeline.Fit(trainingDataView);
         }
@@ -120,22 +120,22 @@ namespace ProjectML_Models.Builder
 
             _predEngine = _mlContext.Model.CreatePredictionEngine<FilmData, FilmPrediction>(loadedModel);
 
-            //haalt alle labels op die voorspeld kunnen worden
+            //Retrieves all labels that can be predicted.
             var labels = AllScores(_predEngine);
 
-            //voorspelt de film
+            //Predict the movie
             var prediction = _predEngine.Predict(Film);
 
-            //haaalt hoogste score op
+            //Retrieve highest score
             var index = Array.IndexOf(labels, prediction.Prediction);
             //var score = prediction.Score[index];
             float score = 0;
 
-            //haalt top 10 labels op
+            //Retrieves top 10
             var labelList = labels.ToDictionary(x => x, x => prediction.Score[Array.IndexOf(labels, x)]).OrderByDescending(x => x.Value).Take(10);
 
             var text = $"{prediction.Prediction}";
-            //kunstmatige accuraatheid; als labelscore < 80%; 2de hoogste genre toevoegen, etc totdat score > 80
+            //Accuracy standard: If label score < 80%, add 2nd highest genre until the score > 80.
             foreach (var item in labelList)
             {
                 if (score > 0.8)
