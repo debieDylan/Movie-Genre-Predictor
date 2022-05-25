@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectML_WPF", "ProjectML_WPF\ProjectML_WPF.csproj", "{EC2C6E4D-A838-4D49-8EBD-C9DF54564758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectML_Models", "ProjectML_Models\ProjectML_Models.csproj", "{C049FF3B-22AD-4F8E-AA7A-14DACD14E3D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC2C6E4D-A838-4D49-8EBD-C9DF54564758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2C6E4D-A838-4D49-8EBD-C9DF54564758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2C6E4D-A838-4D49-8EBD-C9DF54564758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2C6E4D-A838-4D49-8EBD-C9DF54564758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C049FF3B-22AD-4F8E-AA7A-14DACD14E3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C049FF3B-22AD-4F8E-AA7A-14DACD14E3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C049FF3B-22AD-4F8E-AA7A-14DACD14E3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C049FF3B-22AD-4F8E-AA7A-14DACD14E3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B66E1B4-5359-4C74-9FC2-0C0D5D7886B1}
+	EndGlobalSection
+EndGlobal
